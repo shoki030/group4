@@ -1,3 +1,6 @@
+"""顔画像から年齢を予測し、年齢確認を促進するプログラム
+UTKFace.zipを使用(https://susanqq.github.io/UTKFace/)。
+"""
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -13,14 +16,20 @@ from keras.utils.np_utils import to_categorical
 from keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard, ReduceLROnPlateau
 from keras.preprocessing.image import ImageDataGenerator
 
+"""データの取得
+
+Argments:
+    image_size:　画像の入力サイズ。
+    z:　zipファイルの読み込み。
+    imgfiles:　画像のファイルパスの取得。
+    X:　画像から配列に変換したものをリストとして保持。
+    Y:　ファイル名を"_"で分割し一番最初の年齢だけをリストとして保持。
+    test_size: テストデータの数を決める。
+    
 """
-データ取得
-"""
-# 画像入力サイズ
+
 image_size=100
-# ZIP読み込み
 z = zipfile.ZipFile('UTKFace.zip')
-# 画像ファイルパスのみ取得
 imgfiles = [ x for x in z.namelist() if re.search(r"^UTKFace.*jpg$", x)]
 
 X=[]
@@ -72,8 +81,13 @@ X_train, X_valid, y_train, y_valid = train_test_split(
 )
 print(X_train.shape, y_train.shape, X_valid.shape, y_valid.shape) 
 
-"""
-モデルの構築
+"""モデルの構築
+KerasのXceptionを使用する。
+
+Argments:
+    include_top:　ネットワーク出力層の全結合層を除去(False)。
+    early_stopping:　過学習を防ぐ関数。
+    
 """
 base_model = Xception(
     include_top = False,
@@ -96,6 +110,7 @@ datagen = ImageDataGenerator(
     horizontal_flip = True,
     vertical_flip = False
 )
+
 # EarlyStopping
 early_stopping = EarlyStopping(
     monitor = 'val_loss',
@@ -129,12 +144,16 @@ logging = TensorBoard(log_dir = "log/")
 from keras import backend as K
 def root_mean_squared_error(y_true, y_pred):
         return K.sqrt(K.mean(K.square(y_pred - y_true), axis = -1)) 
+"""モデル学習
+全135層。
+Xceptionの特性より、浅い層は固定し深い層を学習。
+
+Argments:
+    model:　ネットワークの定義。
+    
 """
-モデル学習
-"""
-# ネットワーク定義
+
 model = Model(inputs = base_model.input, outputs = predictions)
-print("{}層".format(len(model.layers)))
 
 #108層までfreeze
 for layer in model.layers[:108]:
@@ -166,14 +185,18 @@ hist = model.fit_generator(
     verbose = 1
 )
 
+"""学習曲線のプロット
+
+Argments:
+    figsize:　グラフのサイズ。
+    
+"""
 plt.figure(figsize=(18,6))
 
 # loss
 plt.subplot(1, 2, 1)
 plt.plot(hist.history["loss"], label="loss", marker="o")
 plt.plot(hist.history["val_loss"], label="val_loss", marker="o")
-#plt.yticks(np.arange())
-#plt.xticks(np.arange())
 plt.ylabel("loss")
 plt.xlabel("epoch")
 plt.title("")
@@ -182,18 +205,38 @@ plt.grid(color='gray', alpha=0.2)
 
 plt.show()
 
+"""モデル評価
+
+Argments:
+    score:　損失関数。
+    
+"""
 score = model.evaluate(X_test, y_test, verbose=1)
 print("evaluate loss: {}".format(score))
 
+"""モデルの保存
+
+Argments:
+    model_dir:　ディレクトリのパスの指定。
+
+"""
 model_dir = './model/'
 if os.path.exists(model_dir) == False : os.mkdir(model_dir)
 
 model.save(model_dir + 'model.hdf5')
 
-# optimizerのない軽量モデルを保存（学習や評価不可だが、予測は可能）
+# optimizerのない軽量モデルを保存
 model.save(model_dir + 'model-opt.hdf5', include_optimizer = False)
 
-# testデータ30件の予測値
+"""モデルの予測
+
+Argments:
+    preds: testデータ30件の予測値。
+    pred:　予測年齢。
+    tune:　実際年齢。
+    
+"""
+
 preds=model.predict(X_test[0:30])
 
 # testデータ30件の画像と正解値＆予測値を出力
