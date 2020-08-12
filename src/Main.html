@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Main</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Main</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/e185711/git/group4/src/Main.py">/Users/e185711/git/group4/src/Main.py</a></font></td></tr></table>
+    <p><tt>顔画像から年齢を予測し、年齢確認を促進するプログラム<br>
+UTKFace.zipを使用(https://susanqq.github.io/UTKFace/)。</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PIL.Image.html">PIL.Image</a><br>
+<a href="keras.backend.html">keras.backend</a><br>
+<a href="io.html">io</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="os.html">os</a><br>
+<a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+<a href="re.html">re</a><br>
+<a href="zipfile.html">zipfile</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-root_mean_squared_error"><strong>root_mean_squared_error</strong></a>(y_true, y_pred)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>X_test</strong> = array([[[[0.4392157 , 0.5254902 , 0.7529412 ],
+ ...     , 1.        , 1.        ]]]], dtype=float32)<br>
+<strong>X_train</strong> = array([[[[1.        , 1.        , 1.        ],
+ ...54902, 0.12941177, 0.3647059 ]]]], dtype=float32)<br>
+<strong>X_valid</strong> = array([[[[0.83137256, 0.827451  , 0.81960785],
+ ...58824, 0.07058824, 0.07058824]]]], dtype=float32)<br>
+<strong>base_model</strong> = &lt;tensorflow.python.keras.engine.training.Model object&gt;<br>
+<strong>data</strong> = array([[[ 28,  37,  36],
+        [ 28,  37,  36]...55, 209],
+        [126, 159, 213]]], dtype=uint8)<br>
+<strong>datagen</strong> = &lt;tensorflow.python.keras.preprocessing.image.ImageDataGenerator object&gt;<br>
+<strong>early_stopping</strong> = &lt;tensorflow.python.keras.callbacks.EarlyStopping object&gt;<br>
+<strong>file</strong> = '28_0_3_20170119164109405.jpg'<br>
+<strong>file_split</strong> = ['28', '0', '3', '20170119164109405.jpg']<br>
+<strong>hist</strong> = &lt;tensorflow.python.keras.callbacks.History object&gt;<br>
+<strong>i</strong> = 7<br>
+<strong>image</strong> = &lt;PIL.Image.Image image mode=RGB size=100x100&gt;<br>
+<strong>image_size</strong> = 100<br>
+<strong>imgfile</strong> = 'testdata/prat3/28_0_3_20170119164109405.jpg'<br>
+<strong>layer</strong> = &lt;tensorflow.python.keras.layers.core.Dense object&gt;<br>
+<strong>logging</strong> = &lt;tensorflow.python.keras.callbacks.TensorBoard object&gt;<br>
+<strong>model</strong> = &lt;tensorflow.python.keras.engine.training.Model object&gt;<br>
+<strong>model_checkpoint</strong> = &lt;tensorflow.python.keras.callbacks.ModelCheckpoint object&gt;<br>
+<strong>model_dir</strong> = './model/'<br>
+<strong>pred</strong> = 14.6<br>
+<strong>predictions</strong> = &lt;tf.Tensor 'dense_1/Identity:0' shape=(None, 1) dtype=float32&gt;<br>
+<strong>preds</strong> = array([[15.388163 ],
+       [10.732779 ],
+      ...11.063985 ],
+       [14.643336 ]], dtype=float32)<br>
+<strong>reduce_lr</strong> = &lt;tensorflow.python.keras.callbacks.ReduceLROnPlateau object&gt;<br>
+<strong>score</strong> = 26.43935775756836<br>
+<strong>true</strong> = 20<br>
+<strong>weights_dir</strong> = './weights/'<br>
+<strong>x</strong> = &lt;tf.Tensor 'dense/Identity:0' shape=(None, 1024) dtype=float32&gt;<br>
+<strong>y_test</strong> = array([28, 57, 42, 73, 25, 42, 42, 20])<br>
+<strong>y_train</strong> = array([25,  1, 30, 20, 25, 50, 25, 50, 40, 42, 6..., 25,  1, 61, 16, 25,
+       28, 49, 29,  1, 35])<br>
+<strong>y_valid</strong> = array([ 1, 25, 66, 37, 24, 42])</td></tr></table>
+</body></html>
