@@ -21,20 +21,20 @@ You can judge at a glance whether it is an age confirmation target.
 
 Install keras and tensorflow with pip command.
 
-'''bash
+```bash
 pip install keras
 pip install tensorflow==2.2.0
-'''
+```
 
 # Usage
 
 Run as follows
 
-'''bash
+```bash
 git clone https://github.com/shoki030/group4.git
 cd group4/src
 python Main.py 
-'''
+```
 
 # Note
 Tensorflow does not work with latest version 2.3.0.
