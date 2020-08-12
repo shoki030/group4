@@ -19,14 +19,18 @@ You can judge at a glance whether it is an age confirmation target.
 
 # Installation
 
-'''
+Install keras and tensorflow with pip command.
+
+'''bash
 pip install keras
 pip install tensorflow==2.2.0
 '''
 
 # Usage
 
-'''
+Run as follows
+
+'''bash
 git clone https://github.com/shoki030/group4.git
 cd group4/src
 python Main.py 
@@ -34,10 +38,12 @@ python Main.py
 
 # Note
 Tensorflow does not work with latest version 2.3.0.
+
 tensflow 2.3.0 → 2.2.0
 
 Operation check environment
-"PyCharm" "Terminal"
+* "PyCharm" 
+* "Terminal"
 
 I don't test environments under Linux and Windows.
 
@@ -45,6 +51,6 @@ I don't test environments under Linux and Windows.
 * Shoki Yamamoto
 * Shoya Takahashi
 * kosuke Asaka
-* Email : e185711@ie.u-ryukyu.ac.jp
-          e185750@ie.u-ryukyu.ac.jp
-          e185405@ie.u-ryukyu.ac.jp
+* Email : * e185711@ie.u-ryukyu.ac.jp
+          * e185750@ie.u-ryukyu.ac.jp
+          * e185405@ie.u-ryukyu.ac.jp
