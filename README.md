@@ -1,6 +1,8 @@
 # group4
 
- "Main.py" is age confirmation auxiliary tool with Python.
+ "group4" is a repository that aims to implement an age confirmation tool using Python.
+ 
+ Development environment is "Google Colaboratory".
 
 # Features
 
@@ -30,7 +32,7 @@ pip install tensorflow==2.2.0
 
 # Usage
 
-Run as follows
+Run as follows.
 
 ```bash
 git clone https://github.com/shoki030/group4.git
@@ -53,8 +55,4 @@ I don't test environments under Linux and Windows.
 * Shoki Yamamoto
 * Shoya Takahashi
 * kosuke Asaka
-* Email : e185711@ie.u-ryukyu.ac.jp
-
-　　　　　　e185750@ie.u-ryukyu.ac.jp
-      
-      　　e185405@ie.u-ryukyu.ac.jp
+* Email : e185711@ie.u-ryukyu.ac.jp　e185750@ie.u-ryukyu.ac.jp　e185405@ie.u-ryukyu.ac.jp
