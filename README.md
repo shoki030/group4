@@ -21,6 +21,8 @@ You can judge at a glance whether it is an age confirmation target.
 
 Install keras and tensorflow with pip command.
 
+Please install the package which is not installed by pip command as appropriate.
+
 ```bash
 pip install keras
 pip install tensorflow==2.2.0
@@ -51,6 +53,8 @@ I don't test environments under Linux and Windows.
 * Shoki Yamamoto
 * Shoya Takahashi
 * kosuke Asaka
-* Email : * e185711@ie.u-ryukyu.ac.jp
-          * e185750@ie.u-ryukyu.ac.jp
-          * e185405@ie.u-ryukyu.ac.jp
+* Email : e185711@ie.u-ryukyu.ac.jp
+
+　　　　　　e185750@ie.u-ryukyu.ac.jp
+      
+      　　e185405@ie.u-ryukyu.ac.jp
