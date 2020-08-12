@@ -17,6 +17,7 @@ from keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard, ReduceL
 from keras.preprocessing.image import ImageDataGenerator
 
 """データの取得
+testdata.zipを使用する際はコメントアウトを外し、UTKFace.zipのコードをコメントアウトする。
 Argments:
     image_size:　画像の入力サイズ。
     z:　zipファイルの読み込み。
@@ -28,8 +29,13 @@ Argments:
 """
 
 image_size = 100
-z = zipfile.ZipFile('testdata.zip')
-imgfiles = [x for x in z.namelist() if re.search(r"^testdata.*jpg$", x)]
+
+z = zipfile.ZipFile('UTKFace.zip')
+imgfiles = [x for x in z.namelist() if re.search(r"^UTKFace.*jpg$", x)]
+
+# z = zipfile.ZipFile('testdata.zip')
+# imgfiles = [x for x in z.namelist() if re.search(r"^testdata.*jpg$", x)]
+
 
 X = []
 Y = []
@@ -147,6 +153,7 @@ def root_mean_squared_error(y_true, y_pred):
 
 
 """モデル学習
+UTKFace.zipの場合はbatch_size=32、testdata.zipの場合はbatch_size=16か８。
 全135層。
 Xceptionの特性より、浅い層は固定し深い層を学習。
 Argments:
@@ -177,8 +184,10 @@ model.compile(
 )
 
 hist = model.fit(
-    datagen.flow(X_train, y_train, batch_size=8),
-    steps_per_epoch=X_train.shape[0] // 8,
+    datagen.flow(X_train, y_train, batch_size=32),
+    steps_per_epoch=X_train.shape[0] // 32,
+#     datagen.flow(X_train, y_train, batch_size=8),
+#     steps_per_epoch=X_train.shape[0] // 8,
     epochs=50,
     validation_data=(X_valid, y_valid),
     callbacks=[early_stopping, reduce_lr],
