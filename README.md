@@ -42,7 +42,7 @@ python Main.py
 
 # Note
 
-Make sure to get the dataset from "UTKFace"
+Make sure to get the dataset from [UTKFace](https://susanqq.github.io/UTKFace/)
 
 Tensorflow does not work with latest version 2.3.0.
 
