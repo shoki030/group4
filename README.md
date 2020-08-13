@@ -41,6 +41,9 @@ python Main.py
 ```
 
 # Note
+
+Make sure to get the dataset from "UTKFace"
+
 Tensorflow does not work with latest version 2.3.0.
 
 tensflow 2.3.0 → 2.2.0
